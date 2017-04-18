@@ -50,6 +50,22 @@ class UserService
 
         return $user->save() ? $user : false;
     }
+
+    /**
+     * ¬озвращает всех пользователей кроме $excludeId
+     * @param int $excludeId
+     * @return array
+     */
+    public function getUsers($excludeId = 0)
+    {
+        $query = User::find();
+
+        if ($excludeId) {
+            $query->where('id != :id', ['id' => $excludeId]);
+        }
+
+        return $query->all();
+    }
 }
 
 /**

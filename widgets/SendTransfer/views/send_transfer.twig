@@ -1,0 +1,20 @@
+{% if app.user.id %}
+    <h2>Перевести</h2>
+    {% set form = active_form_begin({
+        'action': 'transfer/send',
+        'enableAjaxValidation': true,
+    }) %}
+    {{ form.errorSummary(model) | raw }}
+    {{ form.field(model, 'amount').widget('yii\\widgets\\MaskedInput',{
+        'clientOptions': {
+            'alias': 'decimal',
+            'digits': 2,
+            'rightAlign': false
+        }
+    }) | raw }}
+    {{ form.field(model, 'reciever_id').dropDownList(recievers, {'prompt': 'Выберите получателя'}) | raw }}
+    <div class="form-group">
+        {{ html.submitButton('Перевести', {'class': 'btn btn-primary'}) | raw }}
+    </div>
+    {{ active_form_end() }}
+{% endif %}

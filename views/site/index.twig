@@ -1,0 +1,17 @@
+{{ use('/app/widgets/UserBalance/UserBalance') }}
+{{ use('/app/widgets/SendTransfer/SendTransfer') }}
+<div class="site-index">
+    <div class="body-content">
+
+        <div class="row">
+            <div class="col-lg-6">
+                {{ user_balance_widget() }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                {{ send_transfer_widget() }}
+            </div>
+        </div>
+    </div>
+</div>
