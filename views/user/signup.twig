@@ -1,0 +1,23 @@
+{{ use('/yii/helpers/Html') }}
+
+{{ set(this,'title', 'Регистрация') }}
+{{ set(this, 'params', { 'breadcrumbs' : { '' : this.title } }) }}
+<div class="user-signup">
+    <h2 class="page-header">Регистрация</h2>
+    {% set form = active_form_begin() %}
+    {{ form.errorSummary(model) | raw }}
+    {{ form.field(model, 'name') | raw }}
+    {{ form.field(model, 'password').passwordInput() | raw }}
+    {{ form.field(model, 'passwordRepeat').passwordInput() | raw }}
+    {{ form.field(model, 'balance').widget('yii\\widgets\\MaskedInput',{
+        'clientOptions': {
+            'alias': 'decimal',
+            'digits': 2,
+            'rightAlign': false
+        }
+    }) | raw }}
+    <div class="form-group">
+        {{ html.submitButton('Зарегистрироваться', {'class': 'btn btn-primary'}) | raw }}
+    </div>
+    {{ active_form_end() }}
+</div>
