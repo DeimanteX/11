@@ -63,6 +63,13 @@ $config = [
     ],
     'layout' => 'main.twig',
     'params' => $params,
+    'container' => [
+        'definitions' => [],
+        'singletons' => [
+            app\services\UserService::class,
+            app\services\TransferService::class
+        ]
+    ]
 ];
 
 if (YII_ENV_DEV) {
