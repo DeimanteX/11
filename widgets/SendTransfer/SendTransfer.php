@@ -8,7 +8,11 @@ use yii\base\Widget;
 use app\models\forms\TransferForm;
 use yii\helpers\ArrayHelper;
 
-
+/**
+ * Виджет формы перевода средств
+ * Class SendTransfer
+ * @package app\widgets\SendTransfer
+ */
 class SendTransfer extends Widget
 {
     private $userService;

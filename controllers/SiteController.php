@@ -8,7 +8,7 @@ use yii\web\Controller;
 class SiteController extends Controller
 {
     /**
-     * Главная
+     * Р“Р»Р°РІРЅР°СЏ
      * @return string
      */
     public function actionIndex()

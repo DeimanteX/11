@@ -7,20 +7,20 @@ use app\models\db\User;
 use app\models\db\Transfer;
 
 /**
- * Сервис работы с переводами
+ * РЎРµСЂРІРёСЃ СЂР°Р±РѕС‚С‹ СЃ РїРµСЂРµРІРѕРґР°РјРё
  * Class TransferService
  * @package app\services
  */
 class TransferService
 {
     /**
-     * Перевод денег между пользователями
+     * РџРµСЂРµРІРѕРґ РґРµРЅРµРі РјРµР¶РґСѓ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏРјРё
      * @param int $senderId
      * @param int $receiverId
      * @param int $amount
-     * @throws NotEnoughMoneyException недостаточно средств на счете
-     * @throws TransferException непредвиденная ошибка
-     * @throws UserNotFoundException отправитель или получатель перевода не найден по id
+     * @throws NotEnoughMoneyException РЅРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ СЃСЂРµРґСЃС‚РІ РЅР° СЃС‡РµС‚Рµ
+     * @throws TransferException РЅРµРїСЂРµРґРІРёРґРµРЅРЅР°СЏ РѕС€РёР±РєР°
+     * @throws UserNotFoundException РѕС‚РїСЂР°РІРёС‚РµР»СЊ РёР»Рё РїРѕР»СѓС‡Р°С‚РµР»СЊ РїРµСЂРµРІРѕРґР° РЅРµ РЅР°Р№РґРµРЅ РїРѕ id
      */
     public function send($senderId, $receiverId, $amount)
     {
@@ -58,14 +58,14 @@ class TransferService
 }
 
 /**
- * Нештатная ситуация, внутренняя ошибка сервиса
+ * РќРµС€С‚Р°С‚РЅР°СЏ СЃРёС‚СѓР°С†РёСЏ, РІРЅСѓС‚СЂРµРЅРЅСЏСЏ РѕС€РёР±РєР° СЃРµСЂРІРёСЃР°
  * Class TransferException
  * @package app\services
  */
 class TransferException extends \Exception {}
 
 /**
- * Недостаточно средств
+ * РќРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ СЃСЂРµРґСЃС‚РІ
  * Class NotEnoughMoneyException
  * @package app\services
  */

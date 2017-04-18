@@ -5,7 +5,11 @@ namespace app\widgets\UserBalance;
 use Yii;
 use yii\base\Widget;
 
-
+/**
+ * Виджет баланса пользователя
+ * Class UserBalance
+ * @package app\widgets\UserBalance
+ */
 class UserBalance extends Widget
 {
 

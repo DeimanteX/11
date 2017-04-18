@@ -6,20 +6,20 @@ use Yii;
 use app\models\db\User;
 
 /**
- * Сервис работы с пользователями
+ * РЎРµСЂРІРёСЃ СЂР°Р±РѕС‚С‹ СЃ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏРјРё
  * Class UserService
  * @package app\services
  */
 class UserService
 {
     /**
-     * Авторизация текущего пользователя
+     * РђРІС‚РѕСЂРёР·Р°С†РёСЏ С‚РµРєСѓС‰РµРіРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ
      * @param string $name
      * @param string $password
      * @param bool $rememberMe
-     * @return bool true - если пользователь залогинился успешно
-     * @throws UserNotFoundException пользователь не найден
-     * @throws InvalidPasswordException неверный пароль
+     * @return bool true - РµСЃР»Рё РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ Р·Р°Р»РѕРіРёРЅРёР»СЃСЏ СѓСЃРїРµС€РЅРѕ
+     * @throws UserNotFoundException РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ РЅРµ РЅР°Р№РґРµРЅ
+     * @throws InvalidPasswordException РЅРµРІРµСЂРЅС‹Р№ РїР°СЂРѕР»СЊ
      */
     public function login($name, $password, $rememberMe)
     {
@@ -37,8 +37,8 @@ class UserService
     }
 
     /**
-     * Создание нового пользователя
-     * @return bool - если пользователь создался
+     * РЎРѕР·РґР°РЅРёРµ РЅРѕРІРѕРіРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ
+     * @return bool - РµСЃР»Рё РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ СЃРѕР·РґР°Р»СЃСЏ
      */
     public function signup($name, $password, $balance)
     {
@@ -52,7 +52,7 @@ class UserService
     }
 
     /**
-     * Возвращает всех пользователей кроме $excludeId
+     * Р’РѕР·РІСЂР°С‰Р°РµС‚ РІСЃРµС… РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№ РєСЂРѕРјРµ $excludeId
      * @param int $excludeId
      * @return array
      */
@@ -69,14 +69,14 @@ class UserService
 }
 
 /**
- * Неверный пароль
+ * РќРµРІРµСЂРЅС‹Р№ РїР°СЂРѕР»СЊ
  * Class InvalidPasswordException
  * @package app\services
  */
 class InvalidPasswordException extends \Exception {}
 
 /**
- * Пользователь не найден
+ * РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ РЅРµ РЅР°Р№РґРµРЅ
  * Class UserNotFoundException
  * @package app\services
  */
