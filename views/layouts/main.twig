@@ -1,0 +1,64 @@
+{{ register_asset_bundle('app/assets/AppAsset') }}
+{{ use('yii\\widgets\\Breadcrumbs') }}
+{{ use('yii\\') }}
+{{ this.beginPage() }}
+<!DOCTYPE html>
+<html lang="{{ app.language }}">
+<head>
+    <meta charset="{{ app.charset }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {{ html.csrfMetaTags() | raw }}
+    <title>{{ html.encode(this.title) }}</title>
+    {{ this.head() | raw }}
+</head>
+<body>
+{{ this.beginBody() }}
+
+<div class="wrap">
+    {{ nav_bar_begin({
+        'brandLabel': 'Money Transfers',
+        'brandUrl': app.homeUrl,
+        'options': {
+            'class': 'navbar-default navbar-fixed-top'
+        }
+    }) }}
+    <ul class="navbar-nav navbar-right nav">
+        {% if (app.user.isGuest) %}
+            <li><a href="{{ url('/user/signin') }}">Авторизоваться</a></li>
+            <li><a href="/user/signup">Зарегистрироваться</a></li>
+        {% else %}
+            <li>
+                {{ html.beginForm(['/user/logout'], 'post') | raw }}
+                {{ html.submitButton('(' ~ app.user.identity.name ~ ' - ' ~ app.user.identity.balance ~ '$) Выйти', {
+                    'class': 'btn btn-link logout'
+                }) | raw }}
+                {{ html.endForm() | raw }}
+            </li>
+        {% endif %}
+    </ul>
+    {{ nav_bar_end() }}
+
+    <div class="container">
+        {{ breadcrumbs_widget({
+            'links': this.params['breadcrumbs'],
+        }) }}
+        {% if (app.session.getFlash('success')) %}
+            <div class="alert alert-success">{{ app.session.getFlash('success') }}</div>
+        {% endif %}
+        {% if (app.session.getFlash('error')) %}
+            <div class="alert alert-danger">{{ app.session.getFlash('error') }}</div>
+        {% endif %}
+        {{ content | raw }}
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <p class="pull-left">Money Transfers &copy;  {{ "now"|date("Y") }}</p>
+    </div>
+</footer>
+
+{{ this.endBody() }}
+</body>
+</html>
+{{ this.endPage() }}
